@@ -6,11 +6,11 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const session = getSessionCookie(request);
 
-  if (path === "/editor" && !session && process.env.NODE_ENV === "production") {
-    const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("redirect", request.url);
-    return NextResponse.redirect(loginUrl);
-  }
+  // if (path === "/editor" && !session && process.env.NODE_ENV === "production") {
+  //   const loginUrl = new URL("/login", request.url);
+  //   loginUrl.searchParams.set("redirect", request.url);
+  //   return NextResponse.redirect(loginUrl);
+  // }
 
   return NextResponse.next();
 }
