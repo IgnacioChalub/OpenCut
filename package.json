@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "next": "^15.3.4",
+    "uuid": "^11.1.0",
     "wavesurfer.js": "^7.9.8"
   }
 }

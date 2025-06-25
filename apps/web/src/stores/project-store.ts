@@ -1,5 +1,6 @@
 import { TProject } from "@/types/project";
 import { create } from "zustand";
+import { v4 as uuidv4 } from "uuid";
 
 interface ProjectStore {
   activeProject: TProject | null;
@@ -15,7 +16,7 @@ export const useProjectStore = create<ProjectStore>((set) => ({
 
   createNewProject: (name: string) => {
     const newProject: TProject = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name,
       createdAt: new Date(),
       updatedAt: new Date(),

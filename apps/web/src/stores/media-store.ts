@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { v4 as uuidv4 } from "uuid";
 
 export interface MediaItem {
   id: string;
@@ -130,7 +131,7 @@ export const useMediaStore = create<MediaStore>((set, get) => ({
   addMediaItem: (item) => {
     const newItem: MediaItem = {
       ...item,
-      id: crypto.randomUUID(),
+      id: uuidv4(),
     };
     set((state) => ({
       mediaItems: [...state.mediaItems, newItem],

@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { create } from "zustand";
 
 export interface TimelineClip {
@@ -117,7 +118,7 @@ export const useTimelineStore = create<TimelineStore>((set, get) => ({
   addTrack: (type) => {
     get().pushHistory();
     const newTrack: TimelineTrack = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: `${type.charAt(0).toUpperCase() + type.slice(1)} Track`,
       type,
       clips: [],
@@ -140,7 +141,7 @@ export const useTimelineStore = create<TimelineStore>((set, get) => ({
     get().pushHistory();
     const newClip: TimelineClip = {
       ...clipData,
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       startTime: clipData.startTime || 0,
       trimStart: 0,
       trimEnd: 0,
