@@ -22,6 +22,8 @@ COPY packages/auth/ packages/auth/
 ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /app/apps/web
+
+ENV NODE_ENV=production
 RUN bun run build
 
 # Production image
